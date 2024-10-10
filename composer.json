@@ -1,6 +1,8 @@
 {
     "name": "mosafax/encrypto",
-    "description": "A brief description of your package.",
+    "description": "A package to encrypt files by streaming.",
+    "version": "1.0.1",
+    "license": "MIT",
     "type": "library",
     "require": {
         "php": "^8.2",
