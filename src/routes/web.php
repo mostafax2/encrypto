@@ -10,9 +10,13 @@ Route::get(
      );
 
 
+     Route::get('/encrypt-file/{filename}', function ($filename) {
+        $privatePath = 'private/test/'.$filename;
+       return (new Encrypto)->encryptFile($filename,$privatePath) ;
+    });
 
-Route::get('/encrypt-file/{filename}', [Encrypto::class, 'encryptFileInBackground']);
-Route::get('/decrypt-file/{filename}', [Encrypto::class, 'decryptFileInBackground']);
+// Route::get('/encrypt-file/{filename}', [Encrypto::class, 'encryptFileInBackground']);
+Route::get('/decrypt-file/{path}/{filename}', [Encrypto::class, 'decryptFileInBackground']);
 
 
 

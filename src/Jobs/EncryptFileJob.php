@@ -14,15 +14,17 @@ class EncryptFileJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     protected $filename;
+    protected $path;
 
-    public function __construct($filename)
+    public function __construct($filename,$path)
     {
         $this->filename = $filename;
+        $this->path = $path;
     }
 
     public function handle()
     {
         $encrypto = new Encrypto();
-        $encrypto->encryptFile($this->filename);
+        $encrypto->encryptFile($this->filename,$this->path );
     }
 }
